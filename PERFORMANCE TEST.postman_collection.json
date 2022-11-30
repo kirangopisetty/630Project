@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "80aa32d0-e858-4530-9c96-c1660545aefc",
+		"name": "PERFORMANCE TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5040522"
+	},
+	"item": [
+		{
+			"name": "POSITIVE TC",
+			"item": [
+				{
+					"name": "BASIC AUTH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code received is 2xx-Success\", function () {\r",
+									"        pm.response.to.be.success;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response code received is not 4xx-Client side error\", function () {\r",
+									"        pm.response.to.not.be.clientError;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response code received is not 5xx-Server side error\", function () {\r",
+									"        pm.response.to.not.be.serverError;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains mandatory fields\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"authenticated\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"user\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type=application/json\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"        pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "passwd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "{{$randomUserAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://httpbin.org/basic-auth/user/passwd",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"basic-auth",
+								"user",
+								"passwd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BEARER TOKEN AUTH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code received is 2xx-Success\", function () {\r",
+									"        pm.response.to.be.success;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response code received is not 4xx-Client side error\", function () {\r",
+									"        pm.response.to.not.be.clientError;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response code received is not 5xx-Server side error\", function () {\r",
+									"        pm.response.to.not.be.serverError;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains mandatory fields\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"authenticated\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"token\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type=application/json\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"        pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer 12345",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "{{$randomUserAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://httpbin.org/bearer",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"bearer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DIGEST AUTH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code received is 2xx-Success\", function () {\r",
+									"        pm.response.to.be.success;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response code received is not 4xx-Client side error\", function () {\r",
+									"        pm.response.to.not.be.clientError;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response code received is not 5xx-Server side error\", function () {\r",
+									"        pm.response.to.not.be.serverError;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains mandatory fields\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"authenticated\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"user\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type=application/json\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"        pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "digest",
+							"digest": [
+								{
+									"key": "qop",
+									"value": "auth-int",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "passwd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "MD5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "{{$randomUserAgent}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://httpbin.org/digest-auth/auth-int/user/passwd",
+							"protocol": "http",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"digest-auth",
+								"auth-int",
+								"user",
+								"passwd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

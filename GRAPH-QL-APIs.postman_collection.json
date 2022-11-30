@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "d56e6a0f-cabb-40f4-8a38-053f191155c1",
+		"name": "GRAPH-QL-APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5040522"
+	},
+	"item": [
+		{
+			"name": "POSITIVE TC",
+			"item": [
+				{
+					"name": "GRAPH-QL-API1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"founded\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"valuation\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\r\n  company {\r\n    founded\r\n    name\r\n    valuation\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://api.spacex.land/graphql/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spacex",
+								"land"
+							],
+							"path": [
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GRAPH-QL-API2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"ceo\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"coo\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"cto\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\r\n  company {\r\n    ceo\r\n    coo\r\n    cto\r\n    employees\r\n    headquarters {\r\n      city\r\n    }\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://api.spacex.land/graphql/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spacex",
+								"land"
+							],
+							"path": [
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GRAPH-QL-API3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"dragon\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"active\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"status\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\r\n  capsules {\r\n    dragon {\r\n      active\r\n      crew_capacity\r\n      description\r\n    }\r\n    status\r\n    type\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://api.spacex.land/graphql/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spacex",
+								"land"
+							],
+							"path": [
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GRAPH-QL-API4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"site_name\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"launch_site\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"flight\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\r\n  histories {\r\n    flight {\r\n      launch_site {\r\n        site_name\r\n        site_name_long\r\n      }\r\n      launch_date_local\r\n      launch_year\r\n    }\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://api.spacex.land/graphql/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spacex",
+								"land"
+							],
+							"path": [
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "INTEROPERABILITY TESTING",
+			"item": [
+				{
+					"name": "GRAPH-QL-API1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"founded\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"valuation\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "{{$randomUserAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\r\n  company {\r\n    founded\r\n    name\r\n    valuation\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://api.spacex.land/graphql/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spacex",
+								"land"
+							],
+							"path": [
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GRAPH-QL-API2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"ceo\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"coo\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"cto\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "{{$randomUserAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\r\n  company {\r\n    ceo\r\n    coo\r\n    cto\r\n    employees\r\n    headquarters {\r\n      city\r\n    }\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://api.spacex.land/graphql/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spacex",
+								"land"
+							],
+							"path": [
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GRAPH-QL-API3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"dragon\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"active\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"status\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "{{$randomUserAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\r\n  capsules {\r\n    dragon {\r\n      active\r\n      crew_capacity\r\n      description\r\n    }\r\n    status\r\n    type\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://api.spacex.land/graphql/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spacex",
+								"land"
+							],
+							"path": [
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GRAPH-QL-API4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"site_name\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"launch_site\");\r",
+									"        pm.expect(pm.response.text()).to.include(\"flight\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"        pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "{{$randomUserAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\r\n  histories {\r\n    flight {\r\n      launch_site {\r\n        site_name\r\n        site_name_long\r\n      }\r\n      launch_date_local\r\n      launch_year\r\n    }\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://api.spacex.land/graphql/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spacex",
+								"land"
+							],
+							"path": [
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

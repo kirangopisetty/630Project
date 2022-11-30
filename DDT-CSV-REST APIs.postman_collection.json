@@ -1,0 +1,465 @@
+{
+	"info": {
+		"_postman_id": "a656b2a9-307e-42db-9699-e5ce6d4bad6d",
+		"name": "DDT-CSV-REST APIs",
+		"description": "This collection consists of RESTful APIs that uses GET, POST, PUT, PATCH & DELETE http methods to get JSON response from the server.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5040522"
+	},
+	"item": [
+		{
+			"name": "DDT-CSV",
+			"item": [
+				{
+					"name": "LIST USERS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if OK is the response description\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is present\", function () {\r",
+									"    pm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is JSON\", function () {\r",
+									"    pm.response.to.have.jsonBody();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Connection=keep-alive\", function () {\r",
+									"    pm.response.to.have.header(\"Connection\", \"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if X-Powered-By is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"X-Powered-By\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Server is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"Server\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time < 1 second (1000 milli-seconds)\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"email\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"first_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"last_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reqres.in/api/users?page={{pageNumber}}",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{pageNumber}}"
+								}
+							]
+						},
+						"description": "This is a RESTful API that uses GET http method to return JSON response from the server"
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLE USER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if OK is the response description\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is present\", function () {\r",
+									"    pm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is JSON\", function () {\r",
+									"    pm.response.to.have.jsonBody();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Connection=keep-alive\", function () {\r",
+									"    pm.response.to.have.header(\"Connection\", \"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if X-Powered-By is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"X-Powered-By\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Server is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"Server\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time < 1 second (1000 milli-seconds)\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"email\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"first_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"last_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if id=2, first_name=Janet, last_name=Weaver\", function () {\r",
+									"        var jsonData = pm.response.json();\r",
+									"        pm.expect(jsonData.data.id).to.eql(2);\r",
+									"        pm.expect(jsonData.data.first_name).to.eql(\"Janet\");\r",
+									"        pm.expect(jsonData.data.last_name).to.eql(\"Weaver\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reqres.in/api/users/{{validEmpID}}",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{validEmpID}}"
+							]
+						},
+						"description": "This is a RESTful API that uses GET http method to return JSON response from the server"
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLE USER NOT FOUND",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Not Found is the response description\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Connection=keep-alive\", function () {\r",
+									"    pm.response.to.have.header(\"Connection\", \"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if X-Powered-By is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"X-Powered-By\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Server is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"Server\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time < 1 second (1000 milli-seconds)\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reqres.in/api/users/{{invalidEmpID}}",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{invalidEmpID}}"
+							]
+						},
+						"description": "This is a RESTful API that uses GET http method to return user data (if exists) in the server"
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE USER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Created is the response description\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is present\", function () {\r",
+									"    pm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is JSON\", function () {\r",
+									"    pm.response.to.have.jsonBody();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Connection=keep-alive\", function () {\r",
+									"    pm.response.to.have.header(\"Connection\", \"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if X-Powered-By is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"X-Powered-By\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Server is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"Server\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time < 1 second (1000 milli-seconds)\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"job\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"createdAt\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"job\": \"{{currentJob}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://reqres.in/api/users",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "This is a RESTful API that uses POST http method to create a new user in the server"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if OK is the response description\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is present\", function () {\r",
+									"    pm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is JSON\", function () {\r",
+									"    pm.response.to.have.jsonBody();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type=application/json; charset=utf-8\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Connection=keep-alive\", function () {\r",
+									"    pm.response.to.have.header(\"Connection\", \"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if X-Powered-By is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"X-Powered-By\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Server is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"Server\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time < 1 second (1000 milli-seconds)\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains mandatory fields\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"job\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"updatedAt\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mr.{{name}}\",\r\n    \"job\": \"{{updatedJob}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://reqres.in/api/users/{{validEmpID}}",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{validEmpID}}"
+							]
+						},
+						"description": "This is a RESTful API that uses PUT http method to update an existing user in the server"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if No Content is the response description\", function () {\r",
+									"    pm.response.to.have.status(\"No Content\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is not present\", function () {\r",
+									"    pm.response.to.not.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Content-Type is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Connection=keep-alive\", function () {\r",
+									"    pm.response.to.have.header(\"Connection\", \"keep-alive\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if X-Powered-By is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"X-Powered-By\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Server is not present\", function () {\r",
+									"    pm.response.to.not.have.header(\"Server\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time < 1 second (1000 milli-seconds)\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://reqres.in/api/users/{{validEmpID}}",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{validEmpID}}"
+							]
+						},
+						"description": "This is a RESTful API that uses DELETE http method to delete an existing user in the server"
+					},
+					"response": []
+				}
+			],
+			"description": "This folder consists of Positive/Smoke test cases"
+		}
+	]
+}
